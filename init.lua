@@ -25,11 +25,10 @@ local config = {
     -- duskfox = { -- a table of overrides
     --   Normal = { bg = "#000000" },
     -- },
-    default_theme = function(highlights) -- or a function that returns one
+    default_theme = function(hi) -- or a function that returns one
       local C = require "default_theme.colors"
-
-      highlights.Normal = { fg = C.fg, bg = C.bg }
-      return highlights
+      hi.Normal = { bg = C.none, ctermbg = C.none }
+      return hi
     end,
   },
 
@@ -93,26 +92,6 @@ local config = {
       --     require("lsp_signature").setup()
       --   end,
       -- },
-      {
-        "xiyaowong/nvim-transparent",
-        config = function()
-          require("transparent").setup {
-            enable = true, -- boolean: enable transparent
-            extra_groups = { -- table/string: additional groups that should be cleared
-              -- In particular, when you set it to 'all', that means all available groups
-
-              -- example of akinsho/nvim-bufferline.lua
-              "BufferLineTabClose",
-              "BufferlineBufferSelected",
-              "BufferLineFill",
-              "BufferLineBackground",
-              "BufferLineSeparator",
-              "BufferLineIndicatorSelected",
-            },
-            exclude = {}, -- table: groups you don't want to clear
-          }
-        end,
-      },
     },
     -- All other entries override the setup() call for default plugins
     ["null-ls"] = function(config)
