@@ -92,6 +92,9 @@ local config = {
       --     require("lsp_signature").setup()
       --   end,
       -- },
+      {
+        "github/copilot.vim",
+      },
     },
     -- All other entries override the setup() call for default plugins
     ["null-ls"] = function(config)
