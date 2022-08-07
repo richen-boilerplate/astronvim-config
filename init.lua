@@ -95,6 +95,9 @@ local config = {
       {
         "github/copilot.vim",
       },
+      {
+        "avneesh0612/react-nextjs-snippets/",
+      },
     },
     -- All other entries override the setup() call for default plugins
     ["null-ls"] = function(config)
