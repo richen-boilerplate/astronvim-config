@@ -1,0 +1,43 @@
+{
+  "name": "user snippets",
+  },
+  "engines": {
+    "vscode": "^1.11.0"
+  },
+  "contributes": {
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./react-javascript.json"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./react-javascript.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./react-typescript.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./react-typescript.json"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./next-javascript.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./next-typescript.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./next-typescript.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./next-javascript.json"
+      }
+    ]
+  },
+}

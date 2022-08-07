@@ -18,7 +18,7 @@ local config = {
   },
 
   -- Set colorscheme
-  colorscheme = "default_theme",
+  colorscheme = "onedark",
 
   -- Override highlight groups in any theme
   highlights = {
@@ -93,10 +93,21 @@ local config = {
       --   end,
       -- },
       {
+        "buidler-hub/react-nextjs-snippets",
+      },
+      {
         "github/copilot.vim",
       },
       {
-        "avneesh0612/react-nextjs-snippets/",
+        "navarasu/onedark.nvim",
+        as = "onedark",
+        config = function()
+          require("onedark").setup {
+            style = "darker",
+            transparent = true,
+          }
+          require("onedark").load()
+        end,
       },
     },
     -- All other entries override the setup() call for default plugins
@@ -137,15 +148,41 @@ local config = {
     packer = {
       compile_path = vim.fn.stdpath "data" .. "/packer_compiled.lua",
     },
+    -- toggleterm needs to be extended by default to change default shell
+    ["toggleterm"] = {
+      size = 10,
+      open_mapping = [[<c-\>]],
+      hide_numbers = true,
+      shade_filetypes = {},
+      shade_terminals = true,
+      shading_factor = 2,
+      start_in_insert = true,
+      insert_mappings = true,
+      persist_size = true,
+      direction = "float",
+      close_on_exit = true,
+      shell = "/bin/zsh",
+      float_opts = {
+        border = "curved",
+        winblend = 0,
+        highlights = {
+          border = "Normal",
+          background = "Normal",
+        },
+      },
+    },
   },
 
   -- LuaSnip Options
   luasnip = {
     -- Add paths for including more VS Code style snippets in luasnip
-    vscode_snippet_paths = {},
+    vscode_snippet_paths = {
+      "./lua/user/snippets",
+    },
     -- Extend filetypes
     filetype_extend = {
-      javascript = { "javascriptreact" },
+      javascript = { "javascriptreact", "html" },
+      typescript = { "typescriptreact", "html" },
     },
   },
 
