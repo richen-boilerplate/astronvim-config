@@ -288,6 +288,23 @@ local config = {
   -- good place to configuring augroups/autocommands and custom filetypes
   polish = function()
     -- Set key binding
+    -- Copilot keybind
+    vim.g.copilot_no_tab_map = true
+    vim.api.nvim_set_keymap("i", "<S-Tab>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+
+    -- For performance reasons, lets remove copilot on certain filetypes
+    vim.g.copilot_filetypes = {
+      ["*"] = false,
+      ["javascript"] = true,
+      ["typescript"] = true,
+      ["lua"] = false,
+      ["rust"] = true,
+      ["c"] = true,
+      ["c#"] = true,
+      ["c++"] = true,
+      ["go"] = true,
+      ["python"] = true,
+    }
     -- Set autocommands
     vim.api.nvim_create_augroup("packer_conf", { clear = true })
     vim.api.nvim_create_autocmd("BufWritePost", {
