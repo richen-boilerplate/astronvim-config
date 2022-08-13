@@ -16,7 +16,6 @@ local config = {
     --   ["remote3"] = "github_user", -- GitHub user assume AstroNvim fork
     -- },
   },
-
   -- Set colorscheme
   colorscheme = "onedark",
 
@@ -31,7 +30,6 @@ local config = {
       return hi
     end,
   },
-
   -- set vim options here (vim.<first_key>.<second_key> =  value)
   options = {
     opt = {
@@ -92,6 +90,11 @@ local config = {
       --     require("lsp_signature").setup()
       --   end,
       -- },
+      {
+        "folke/todo-comments.nvim",
+        requires = "nvim-lua/plenary.nvim",
+        config = function() require("todo-comments").setup() end,
+      },
       {
         "buidler-hub/react-nextjs-snippets",
       },
